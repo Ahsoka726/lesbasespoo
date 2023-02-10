@@ -6,7 +6,13 @@
         private string $shield;
         private int $shieldValue;
 
-
+        public function __construct($weapon, $weaponDamage, $shield, $shieldValue) {
+            parent::__construct();
+            $this->$weapon = $weapon;
+            $this->$weaponDamage = $weaponDamage;
+            $this->$shield = $shield;
+            $this->$shieldValue = $shieldValue;
+        }
 
         /**Cette méthode permet d'affecter une valeur à la propriété weapon
          * @param mixed $valueWeapon
@@ -95,7 +101,7 @@
     // - shield définira le nom de l'armure équipée,
     // - shieldValue indiquera le nombre de dégâts que l'armure encaisse à la place du héros.
     // Les attributs ne doivent être accessibles que dans cette classe !
-    
+
 
 // Exercice 5
  // Créer les méthodes permettant d’accéder aux attributs de la classe Hero et permettant également

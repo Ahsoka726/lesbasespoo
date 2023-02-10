@@ -4,7 +4,11 @@
         private int $health;
         private int $rage;
 
-        public function __construct($valueHealth, $valueRage ) {
+        /** Cette méthode initialise les valeurs des propriétés health et rage. 
+         * @param int $valueHealth Je récupère la valeur de health
+         * @param int $valueRage Je récupère la valeur de rage
+         */
+        public function __construct(int $valueHealth,int $valueRage ) {
             $this->health = $valueHealth;
             $this->rage = $valueRage;
         }
