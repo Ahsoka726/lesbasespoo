@@ -1,81 +1,81 @@
 <?php
 
-    class Herohéritant{
+    class Hero extends Character{
         private string $weapon;
         private int $weaponDamage;
         private string $shield;
         private int $shieldValue;
 
-        public function __construct($weapon, $weaponDamage, $shield, $shieldValue) {
-            parent::__construct();
+        public function __construct($valueHealth,$valueRage,string $weapon,int $weaponDamage,string $shield,int $shieldValue) {
+            parent::__construct($valueHealth, $valueRage);
             $this->$weapon = $weapon;
             $this->$weaponDamage = $weaponDamage;
             $this->$shield = $shield;
             $this->$shieldValue = $shieldValue;
         }
-
+//-----------------------------------------------------------------------------------------------------------------
         /**Cette méthode permet d'affecter une valeur à la propriété weapon
          * @param mixed $valueWeapon
          * 
          * @return void
          */
-        public function setWeapon(int $valueWeapon){
+        public function setWeapon(string $valueWeapon):void{
             $this->weapon = $valueWeapon;
         }
 
         
         /**
-         * @return int
+         * @return string
          */
-        public function getWeapon(){
+        public function getWeapon():string{
             return $this->weapon;
         }
-
+//------------------------------------------------------------------------------------------------------------------
         /**Cette méthode permet d'affecter une valeur à la propriété weaponDamage
          * @param mixed $valueWeaponDamage
          * 
          * @return void
          */
-        public function setweaponDamage($valueWeaponDamage){
+        public function setweaponDamage(int $valueWeaponDamage):void{
             $this->weapon = $valueWeaponDamage;
         }
 
         /**
-         * @return [type]
+         * @return int
          */
-        public function getweaponDamage(){
+        public function getweaponDamage():int{
             return $this->weaponDamage;
         }
-
+//----------------------------------------------------------------------------------------------------------------
         /**Cette méthode permet d'affecter une valeur à la propriété shield
          * @param int $valueShield
          * 
          * @return void
          */
-        public function setShield(int $valueShield){
+        public function setShield(string $valueShield):void{
             $this->weapon = $valueShield;
         }
 
         /**
-         * @return [type]
+         * @return string
          */
-        public function getShield(){
+        public function getShield():string{
             return $this->shield;
         }
-
+//----------------------------------------------------------------------------------------------------------------
         /**Cette méthode permet d'affecter une valeur à la propriété ShieldValue
          * @param mixed $valueShieldValue
          * 
          * @return void
          */
-        public function setShieldValue($valueShieldValue){
+        public function setShieldValue(int $valueShieldValue):void{
             $this->weapon = $valueShieldValue;
         }
 
         /**
-         * @return [type]
+         * @return int
          */
-        public function getShieldValue(){
+        public function getShieldValue():int{
             return $this->shieldValue;
         }
 
