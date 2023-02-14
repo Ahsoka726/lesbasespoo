@@ -1,17 +1,24 @@
 <?php
 
+    require_once(__DIR__.'/character.php');
+
     class Hero extends Character{
         private string $weapon;
         private int $weaponDamage;
         private string $shield;
         private int $shieldValue;
 
-        public function __construct($valueHealth,$valueRage,string $weapon,int $weaponDamage,string $shield,int $shieldValue) {
+        public function __construct($valueHealth,$valueRage,$weapon,$weaponDamage,$shield,$shieldValue) {
             parent::__construct($valueHealth, $valueRage);
-            $this->$weapon = $weapon;
-            $this->$weaponDamage = $weaponDamage;
-            $this->$shield = $shield;
-            $this->$shieldValue = $shieldValue;
+            $this->weapon = $weapon;
+            $this->weaponDamage = $weaponDamage;
+            $this->shield = $shield;
+            $this->shieldValue = $shieldValue;
+        }
+//-----------------------------------------------------------------------------------------------------------------
+        public function __toString(){
+            return 'Votre personnage a '. $this->getHealth() . ', votre comme rage de '. $this->getRage() .', votre arme est '. $this->getWeapon() .
+            ' qui comme dommage '. $this->getweaponDamage() .' votre bouclier est '. $this->getShield() .' et la valeur du bouclier est de '. $this->getShieldValue() . ' .';
         }
 //-----------------------------------------------------------------------------------------------------------------
         /**Cette méthode permet d'affecter une valeur à la propriété weapon
@@ -79,14 +86,25 @@
             return $this->shieldValue;
         }
 
-
+        public function attacked(int $valueDamage){
+            $damage = $valueDamage - $this->getShieldValue();
+            if($this->getShieldValue() < $valueDamage){
+               $takedDamage = $this->getHealth() - $damage; 
+               $this->setHealth($takedDamage);
+               $this->setRage($this->getRage() + 30);
+            }
+            return $damage;
+            
+        }
 
     }
 
 
 
+$joueur = new Hero(100, 5, 'Epée',15 ,'armure basique', 30);
 
-
+var_dump($joueur);
+echo $joueur;
 
 
 
@@ -113,3 +131,21 @@
 // shield et shieldValue.
 // Pour finir, cette méthode doit retourner une phrase contenant toutes les informations sur le Héros
 // nouvellement créé.
+
+// Exercice 6
+// Créer la méthode magique construct de la classe Hero.
+// Cette méthode devra permettre le déclenchement de la méthode construct de la classe mère
+// (Character) et devra également permettre de défnir les valeurs de weapon, weaponDamage,
+// shield et shieldValue.
+// Pour finir, cette méthode doit retourner une phrase contenant toutes les informations sur le Héros
+// nouvellement créé.
+
+
+// Exercice 7
+// Créer une méthode attacked dans la classe Hero permettant au Héros de prendre des dégâts en
+// considérant la valeur de l’armure.
+
+
+// Exercice 8
+// Pour chaque coup reçu, il faudra faire gagner de la rage à notre Héros.
+// Créer une méthode permettant d’augmenter la valeur de rage de 30.
